@@ -9,6 +9,7 @@ $fg-color: #212121 !default;
 $alt-bg-color: #E0E0E0 !default;
 $alt-fg-color: #000 !default;
 $link-color: #1565c0 !default;
+$light-border-color: #dcdcdc;
 
 // Colors dark
 $bg-color-dark: #212121 !default;
@@ -16,3 +17,8 @@ $fg-color-dark: #dadada !default;
 $alt-bg-color-dark: #424242 !default;
 $alt-fg-color-dark: #dadada !default;
 $link-color-dark: #42a5f5 !default;
+$dark-border-color: #4a4b50;
+
+// Media Sizes
+$media-size-phone: "(max-width: 684px)";
+$media-size-tablet: "(max-width: 900px)";

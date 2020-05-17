@@ -2,7 +2,36 @@
   {{ .Title }} · {{ .Site.Title }}
 {{ end }}
 {{ define "content" }}
-  <section class="container list">
+  {{ $paginator := .Paginate .Data.Pages }}
+
+  <main class="posts">
+    <h1>{{ .Title}}</h1>
+    {{ range $paginator.Pages.GroupByDate "2006" }}
+      <div class="posts-group">
+        <div class="post-year">{{ .Key }}</div>
+
+        <ul class="posts-list">
+          {{ range .Pages}}
+          <li class="post-item">
+            <a href="{{.Permalink}}">
+              <span class="post-title">{{.Title}}</span>
+              <span class="post-day">
+                {{ if .Site.Params.datefromShort }}
+                  {{ .Date.Format .Site.Parama.datefromShort }}
+                {{ else }}
+                  {{ .Date.Format "Jan 2" }}
+                {{ end }}
+              </span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  {{ partial "pagination.html" . }} 
+  </main>
+
+  <!-- <section class="container list">
     <h1 class="title">{{ .Title }}</h1>
 
     <ul>
@@ -12,5 +41,6 @@
     </ul>
 
     {{ partial "pagination.html" . }}
-  </section>
+  </section> -->
+
 {{ end }}
