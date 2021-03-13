@@ -95,7 +95,7 @@
       .title {
         font-size: 1.8rem;
         color: $fg-color;
-        font-family: $heading-font-family;
+        font-family: $label-font-family;
         font-weight: 700;
         &:hover,
         &:focus {
@@ -113,10 +113,12 @@
   .about {
     text-align: center;
     h1 {
+      font-family: $label-font-family;
       margin-top: 2.0rem;
       margin-bottom: 0.5rem;
     }
     h2 {
+      font-family: $label-font-family;
       margin-top: 1.0rem;
       margin-bottom: 0.5rem;
       font-size: 2.4rem;

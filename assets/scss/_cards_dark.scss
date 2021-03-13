@@ -1,0 +1,31 @@
+@mixin cards_dark {
+    .card {
+        background-color: $card-bg-color-dark;
+    }
+
+    .card-text {
+        color: $card-desc-color-dark;
+    }
+
+    .card:hover .card-title {
+        color: $link-color-dark;
+    }
+
+    .card-title {
+        color: $fg-color-dark;
+    }
+
+    .card-description {
+        color: $card-desc-color-dark;
+    }
+}
+
+body.colorscheme-dark {
+    @include cards_dark();
+}
+
+body.colorscheme-auto {
+    @media (prefers-color-scheme: dark) {
+        @include cards_dark();
+    }
+}

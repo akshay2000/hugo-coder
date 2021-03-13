@@ -1,0 +1,55 @@
+.cards-view {
+    max-width: 960px;
+    column-count: 2;
+    padding: 12px 0;
+    column-gap: 48px;
+    @media only screen and (max-width: 768px) {
+        .cards-view {
+            column-count: 1;
+        }
+    }
+}
+
+.cards-view a,
+cards-view a:hover,
+cards-view a:link,
+cards-view a:visited,
+cards-view a:active {
+    text-decoration: none;
+}
+
+.card {
+    margin-bottom: 48px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 1px 3px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px -2px rgba(0, 0, 0, 0.5);
+    break-inside: avoid;
+    -webkit-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    border-radius: 4px;
+    background-color: $card-bg-color;
+    overflow: hidden;
+}
+
+.card-text {
+    padding: 0 24px 24px 24px;
+    color: $card-desc-color;
+}
+
+.card:hover .card-title {
+    color: $link-color;
+}
+
+.card-title {
+    font-family: $label-font-family;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin: 1.6rem 0rem;
+    color: $fg-color;
+}
+
+.card-description {
+    margin: 0;
+    color: $card-desc-color;
+    font-weight: 400;
+}

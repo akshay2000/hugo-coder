@@ -1,25 +1,29 @@
 *,
 *:after,
 *:before {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-	box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 62.5%;
 }
 
 body {
   color: $fg-color;
   background-color: $bg-color;
-	font-family: $text-font-family;
-	font-size: 1.6em;
-	font-weight: 300;
+  font-family: $text-font-family;
+  font-size: 1.6em;
+  font-weight: 300;
   line-height: 1.8em;
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width: 768px) {
     font-size: 1.6em;
     line-height: 1.6em;
   }
+}
+
+body li {
+  margin-bottom: 0.8em;
 }
 
 a {
@@ -33,7 +37,10 @@ a {
 }
 
 p {
-  margin: 2.0rem 0 2.0rem 0;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  font-family: $text-font-family;
+  line-height: 1.5em;
 }
 
 h1,
@@ -49,55 +56,67 @@ h6 {
 }
 
 h1 {
+  margin-bottom: 0.25em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
   font-size: 3.2rem;
-  line-height: 3.6rem;
-  @media only screen and (max-width : 768px) {
-    font-size: 3.0rem;
-    line-height: 3.4rem;
+  @media only screen and (max-width: 768px) {
+    font-size: 3rem;
   }
 }
+
 h2 {
-  font-size: 2.8rem;
-  line-height: 3.2rem;
-  @media only screen and (max-width : 768px) {
-    font-size: 2.6rem;
-    line-height: 3.0rem;
-  }
+  font-size: 2.4rem;
+  margin-bottom: 0.1em;
+  line-height: 1em;
+  margin-top: 1.5em;
+  // @media only screen and (max-width : 768px) {
+  //   font-size: 2.6rem;
+  // }
 }
+
+h1 + h2 {
+  margin-top: 0;
+}
+
 h3 {
   font-size: 2.4rem;
   line-height: 2.8rem;
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width: 768px) {
     font-size: 2.2rem;
     line-height: 2.6rem;
   }
 }
+
 h4 {
   font-size: 2.2rem;
   line-height: 2.6rem;
-  @media only screen and (max-width : 768px) {
-    font-size: 2.0rem;
+  @media only screen and (max-width: 768px) {
+    font-size: 2rem;
     line-height: 2.4rem;
   }
 }
+
 h5 {
-  font-size: 2.0rem;
+  font-size: 2rem;
   line-height: 2.4rem;
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width: 768px) {
     font-size: 1.8rem;
     line-height: 2.2rem;
   }
 }
+
 h6 {
   font-size: 1.8rem;
   line-height: 2.2rem;
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width: 768px) {
     font-size: 1.6rem;
-    line-height: 2.0rem;
+    line-height: 2rem;
   }
 }
 
-b, strong {
+b,
+strong {
   font-weight: 700;
 }
 
@@ -129,23 +148,26 @@ code {
   font-weight: 400;
   background-color: $alt-bg-color;
   color: $fg-color;
+  padding: 0 2px;
 }
 
 blockquote {
   border-left: 2px solid $alt-bg-color;
-  padding-left: 2.0rem;
+  padding-left: 2rem;
   line-height: 2.2rem;
   font-weight: 400;
   font-style: italic;
 }
 
-th, td {
+th,
+td {
   padding: 1.6rem;
 }
 table {
   border-collapse: collapse;
 }
-table td, table th {
+table td,
+table th {
   border: 2px solid $alt-fg-color;
 }
 table tr:first-child th {
@@ -181,10 +203,31 @@ figure {
 
 .container {
   margin: 0 auto;
-  max-width: 90.0rem;
+  max-width: 90rem;
   width: 100%;
-  padding-left: 2.0rem;
-  padding-right: 2.0rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.projects {
+  margin: 0 auto;
+}
+
+.projects-wrapper {
+  padding: 0 48px;
+  max-width: 960px;
+  @media only screen and (max-width: 768px) {
+    padding: 0 20px;
+  }
+}
+
+.projects h1 {
+  margin-block-start: 0;
+}
+
+p img,
+figure img {
+  border-radius: 2px;
 }
 
 .fab {

@@ -1,7 +1,8 @@
 // Fonts
-$text-font-family: Merriweather, Georgia, serif;
-$heading-font-family: Lato, Helvetica, sans-serif;
-$code-font-family: 'Source Code Pro', 'Lucida Console', monospace;
+$text-font-family: 'Merriweather', 'Georgia', serif;
+$label-font-family: Lato, Helvetica, sans-serif;
+$heading-font-family: 'Source Sans Pro', 'Helvetica', Arial, sans-serif;
+$code-font-family: 'Fira Code', monospace;
 
 // Colors
 $bg-color: #FAFAFA !default;
@@ -10,6 +11,8 @@ $alt-bg-color: #E0E0E0 !default;
 $alt-fg-color: #000 !default;
 $link-color: #1565c0 !default;
 $light-border-color: #dcdcdc;
+$card-bg-color: #f0f0f0;
+$card-desc-color: #383838;
 
 // Colors dark
 $bg-color-dark: #212121 !default;
@@ -18,7 +21,9 @@ $alt-bg-color-dark: #424242 !default;
 $alt-fg-color-dark: #dadada !default;
 $link-color-dark: #42a5f5 !default;
 $dark-border-color: #4a4b50;
+$card-bg-color-dark: #2f2f2f;
+$card-desc-color-dark: #c0c0c0;
 
 // Media Sizes
-$media-size-phone: "(max-width: 684px)";
-$media-size-tablet: "(max-width: 900px)";
+$media-size-phone: '(max-width: 684px)';
+$media-size-tablet: '(max-width: 900px)';
