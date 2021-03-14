@@ -4,9 +4,7 @@
     padding: 12px 0;
     column-gap: 48px;
     @media only screen and (max-width: 768px) {
-        .cards-view {
-            column-count: 1;
-        }
+        column-count: 1;
     }
 }
 

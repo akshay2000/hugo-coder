@@ -1,0 +1,32 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <div class="page-root">
+    <div class="art-content">
+      <div class="art-grid">
+        
+        <div class="art-image">
+          {{$image := .Param "image" }}
+          <img src="{{ $image }}"/>
+        </div>
+        
+        <div class="art-description">
+          <h2>{{ .Title }}</h2>
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+              {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}
+            </time>
+          </span>
+          <p>{{ .Param "shortdesc" }}</p>
+        </div>
+
+        <div class="art-text">
+          {{ .Content }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+{{ end }}

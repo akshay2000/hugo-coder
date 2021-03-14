@@ -1,0 +1,56 @@
+{{ define "title" }}
+{{ .Title }} Projects · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+
+<main class="projects">
+    <div class="projects-wrapper">
+        <div class="projects-tabs">
+            {{ $pageTitle := .Page.Title}}
+            <ul>
+                {{ $section := .CurrentSection.Parent }}
+                {{ range $section.Sections.ByWeight }}
+                <li>
+                    <a href="{{ .Permalink }}">
+                        <div class="tab">
+                            <div class="tab-content">
+                                {{ $icon := .Param "icon"}}
+                                <i class="fas fa-{{$icon}}"></i>
+                                <h6>{{ .Title }}</h6>
+                            </div>
+                            {{ if eq .Title $pageTitle }} <div class="active-tab-hint"></div> {{end}}
+                        </div>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        <h1>{{.Page.Title}} Projects</h1>
+        <div class="cards-view">
+            {{ range .Pages }}
+            <div>
+                <a href="{{.Permalink}}">
+                    <div class="card">
+                        {{ $image := ""}}
+                            {{ if isset .Params "thumbnail" }}
+                            {{ $image = print .Permalink (.Param "thumbnail") }}
+                        {{ else }}
+                            {{ $height := index (shuffle (slice 400 500 600 700 800)) 0 }}
+                            {{ $image = print "https://generative-placeholders.glitch.me/image?width=600&height=" $height "&style=triangles&gap=100" }}
+                        {{ end }}
+                        <img class="card-image" src="{{ $image }}" />
+                        <div class="card-text">
+                            <p class="card-title">{{ .Title }}</h4>
+                            <p class="card-description"> {{ .Param "shortdesc" }} </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{ end }}
+            {{ if not (modBool (len .Pages) 2) }}
+            <div style="min-height: 800px;"></div>
+            {{ end }}
+        </div>
+    </div>
+</main>
+{{ end }}
