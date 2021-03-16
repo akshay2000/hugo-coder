@@ -29,6 +29,11 @@ cards-view a:active {
     overflow: hidden;
 }
 
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
 .card-text {
     padding: 0 24px 24px 24px;
     color: $card-desc-color;

@@ -31,14 +31,23 @@
             <div>
                 <a href="{{.Permalink}}">
                     <div class="card">
-                        {{ $image := ""}}
-                            {{ if isset .Params "thumbnail" }}
-                            {{ $image = print .Permalink (.Param "thumbnail") }}
+                        {{ if isset .Params "thumbnail" }}
+                            {{ $image := print .Permalink (.Param "thumbnail") }}
+                            {{ $origImage := .Resources.GetMatch (.Param "thumbnail") }}
+                            {{ $widths := slice "320" "480" "720"}}
+                            {{ $srcSet := slice}}
+                            {{ range $widths}}
+                                {{ $resizedImage := $origImage.Resize (print . "x") }}
+                                {{ $srcSet = $srcSet | append (print $resizedImage.Permalink " " . "w") }}
+                            {{end}}
+                            {{ $srcSetStr := delimit $srcSet ", " }}
+                            <img class="card-image" src="{{ $origImage.Permalink }}" srcset="{{ $srcSetStr }}" sizes="(max-width: 768px) calc(100vw - 40px), 420px"
+                                width="{{ $origImage.Width }}" height = "{{ $origImage.Height }}" />
                         {{ else }}
                             {{ $height := index (shuffle (slice 400 500 600 700 800)) 0 }}
-                            {{ $image = print "https://generative-placeholders.glitch.me/image?width=600&height=" $height "&style=triangles&gap=100" }}
-                        {{ end }}
-                        <img class="card-image" src="{{ $image }}" />
+                            {{ $image := print "https://generative-placeholders.glitch.me/image?width=600&height=" $height "&style=triangles&gap=100" }}
+                            <img class="card-image" src="{{ $image }}" />
+                        {{ end }}                        
                         <div class="card-text">
                             <p class="card-title">{{ .Title }}</h4>
                             <p class="card-description"> {{ .Param "shortdesc" }} </p>
